@@ -3,19 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/extensions.dart';
 
 abstract class CanRun {
-  final Type type;
-  CanRun({
-    required this.type,
-  });
-
-  @mustCallSuper
   void run() {
-    "CanRun's run function is called".log();
+    "Running . . .".log();
   }
 }
 
-class Cat extends CanRun {
-  Cat() : super(type: Type.cat);
+abstract class CanWalk {
+  void walk() {
+    'Waling . . .'.log();
+  }
+}
+
+class Cat with CanRun,CanWalk {
   @override
   void run() {
     super.run();
@@ -23,8 +22,7 @@ class Cat extends CanRun {
   }
 }
 
-class Dog extends CanRun {
-  Dog() : super(type: Type.dog);
+class Dog with CanRun,CanWalk {
   @override
   void run() {
     super.run();

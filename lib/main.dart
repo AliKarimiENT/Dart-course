@@ -3,18 +3,11 @@ import 'package:flutter_application_1/extensions.dart';
 
 import 'abstract_classes.dart';
 
-
-
-
-
 void testIt() {
   final cat = Cat();
-  cat.run();
-  cat.type.log();
-
-  final dog = Dog();
-  dog.run();
-  dog.type.log();
+  cat
+    ..run()
+    ..walk();
 }
 
 void main() {
