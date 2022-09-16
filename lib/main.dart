@@ -1,28 +1,20 @@
 import 'package:flutter/material.dart';
-import 'dart:developer' as devtools show log;
+import 'package:flutter_application_1/extensions.dart';
 
-extension Log on Object {
-  void log() => devtools.log(toString());
-}
+import 'abstract_classes.dart';
 
-abstract class CanRun {
-  @mustCallSuper
-  void run() {
-    "CanRun's run function is callsed".log();
-  }
-}
 
-class Cat with CanRun {
-  @override
-  void run() {
-    super.run();
-    "Cat is running".log();  
-  }
-}
+
+
 
 void testIt() {
   final cat = Cat();
   cat.run();
+  cat.type.log();
+
+  final dog = Dog();
+  dog.run();
+  dog.type.log();
 }
 
 void main() {
