@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/extensions.dart';
-
-import 'abstract_classes.dart';
+import 'package:flutter_application_1/mixin_class.dart';
 
 void testIt() {
   final cat = Cat();
-  cat
-    ..run()
-    ..walk();
+  cat.speed = 100;
+  cat.run();
+  cat.speed = 20;
+  cat.run();
 }
 
 void main() {
