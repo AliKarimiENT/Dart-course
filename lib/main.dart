@@ -6,14 +6,23 @@ extension Log on Object {
 }
 
 abstract class CanRun {
-  void run();
+  @mustCallSuper
+  void run() {
+    "CanRun's run function is callsed".log();
+  }
 }
 
 class Cat with CanRun {
   @override
   void run() {
-    Log('');
+    super.run();
+    "Cat is running".log();  
   }
+}
+
+void testIt() {
+  final cat = Cat();
+  cat.run();
 }
 
 void main() {
@@ -46,12 +55,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    'testit log function'.log();
+    testIt();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dart course'),
