@@ -19,7 +19,7 @@ Future<Iterable<Person>> getPersons() async {
 }
 
 void _getPersons(SendPort port) async {
-  const url = 'http://127.0.0.1:5500/apis/people1.json';
+  const url = 'https://github.com/AliKarimiENT/Dart-course/blob/master/apis/people1.json';
   final persons = await HttpClient()
       .getUrl(Uri.parse(url))
       .then((req) => req.close())
