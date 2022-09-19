@@ -1,15 +1,23 @@
 import 'package:flutter_application_1/extensions.dart';
-
-mixin CanRun {
-  int get speed;
-  void run() {
-    'Running at the spped of $speed'.log();
-  }
+import 'package:meta/meta.dart';
+import 'dart:convert';
+abstract class Animal {
+  const Animal();
+}
+mixin CanMakeGetCall {
+  String get url;
+  @useResult
+  Future<String> getString() => getUrl(url).then(
+        (resp) => resp
+            .transform(
+              utf8.decoder,
+            )
+            .join(),
+      );
 }
 
-class Cat with CanRun {
+@immutable
+class GetPeople with CanMakeGetCall{
   @override
-  int speed = 10;
-  
-  
+  String get url => 'http://127.0.0.1:5500/lib/poeple.json';
 }

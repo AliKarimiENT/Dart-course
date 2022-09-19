@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/extensions.dart';
 import 'package:flutter_application_1/mixin_class.dart';
 
-void testIt() {
-  final cat = Cat();
-  cat.speed = 100;
-  cat.run();
-  cat.speed = 20;
-  cat.run();
+Future<void> testIt() async {
+  final people = await GetPeople().getString();
+  people.log();
 }
 
 void main() {
@@ -41,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     'testit log function'.log();
-    testIt();
+    // testIt();
 
     return Scaffold(
       appBar: AppBar(
